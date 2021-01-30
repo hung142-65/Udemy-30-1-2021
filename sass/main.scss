@@ -1,0 +1,36 @@
+// Chứa đường dẫn tới các files con 
+// Không chứa code style css 
+
+// Thứ tự: (Code nằm bên dưới ưu tiên cao hơn code trên nó)
+
+// Helper (file biến đầu tiên)
+@import './Helper/variables'; 
+@import './Helper/mixin';
+
+// Vendor 
+
+
+// Base
+@import './Base/reset';
+@import './Base/customize';
+@import './Base/normalized';
+
+// Components 
+@import './Components/button';
+
+// Layouts (theo thứ tự phần chính webside)
+@import './Layouts/header';
+@import './Layouts/carousel';
+@import './Layouts/intro'; 
+@import './Layouts/course';
+@import './Layouts/services';
+@import './Layouts/student';
+@import './Layouts/banner';
+@import './Layouts/topCate';
+@import './Layouts/feedback';
+@import './Layouts/companies';
+@import './Layouts/footer';
+// Pages 
+
+
+// Theme

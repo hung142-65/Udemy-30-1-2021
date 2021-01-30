@@ -1,0 +1,40 @@
+// thêm style các loại chữ 
+@mixin styleText($color, $fs, $fw) {
+    color: $color;
+    font-size: $fs;
+    font-weight: $fw;
+}
+// button 
+@mixin styleButton($bg-color, $border-color, $pd-y, $pd-x, $radius) {
+    background-color: $bg-color;
+    border: 1px solid $border-color;
+    padding: $pd-y $pd-x;
+    border-radius: $radius;
+    transition: 0.3s;
+        // &:hover {
+    //     //thay đổi khi hover
+    // } Không nên, do phải truyền thêm tham số
+}
+
+@mixin styleButtonHover($bg-color, $color, $border-color) {
+    background-color: $bg-color;
+    color: $color;
+    border-color: $border-color;
+}
+
+// $screen: chứa tên màn hình 
+@mixin responsive($screen) {
+    //lấy giá trị dựa vào tên màn hình
+    //kiểm tra tên màn hình có hợp lệ không => kiểm tra tên có tồn tại trong biến $breackpoints
+    @if(map-has-key($map: $breakpoints, $key: $screen )) {
+        //Hợp lệ
+        //$value: chứa kích thước màn hình lấy được
+        $value: map-get($map: $breakpoints, $key: $screen);
+        @media screen and (max-width: $value) {
+            @content;
+        }
+    } @else {
+        //Không hợp lệ, thông báo cho ng lập trình
+        @warn "Screen is not exist";
+    }
+}

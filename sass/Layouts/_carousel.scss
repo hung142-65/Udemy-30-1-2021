@@ -1,0 +1,89 @@
+.udeCarousel{
+    background-image: url(../images/cover.jpg);
+    height: 400px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    .udeCarousel__content {
+        position: absolute;
+        top: 30%;
+        left: 8%;
+        width: 35%;
+        h1 {
+            @include styleText($color-white-0, $fs-4, $fw-bold-1);
+        }
+        p {
+            @include styleText($color-white-0, $fs-2 - 2, 300);
+        }
+        .udeCarousel__form {
+            .form-control {
+                padding: $pd-1 + 1 $pd-2 - 3;
+                height: 50px;
+                font-size: $fs-2;
+                font-weight: 100;
+                border: none;
+                box-shadow: none;
+            }
+            .input-group-append {
+                .input-group-text {
+                    padding: $pd-1 + 1 $pd-1 + 4;
+                    font-size: $fs-2;
+                    width: 50px;
+                    height: 50px;
+                    color: $color-red-0;
+                    transition: .3s;
+                    background-color: $color-white-0;
+                    border: none;
+                    &:hover {
+                        @include styleButtonHover($color-red-0, $color-white-0, $color-trans)
+                    }
+                }
+            }
+        }
+    } 
+}
+
+// RESPONSIVE
+@include responsive("extra-large") {
+    .udeCarousel {
+        .udeCarousel__content {
+            width: 45%;
+            left: 3%;
+        }
+    }
+}
+
+@include responsive("large") {
+    .udeCarousel {
+        .udeCarousel__content {
+            left: 8%;
+            width: 40%;
+            top:20%;
+        }
+    }
+}
+
+@include responsive("medium") {
+    .udeCarousel {
+        .udeCarousel__content {
+            left: 3%;
+            width: 45%;
+        }
+    }
+}
+
+@include responsive("small") {
+    .udeCarousel {
+        .udeCarousel__content {
+            width: 65%;
+            h1 {
+                @include styleText($color-white-0, $fs-3, $fw-normal)
+            }
+            h1, p {
+                // 60% width của thẻ .udeCarousel__content
+                max-width: 60%;
+            }
+        }
+    }
+}

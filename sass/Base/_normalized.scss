@@ -1,0 +1,75 @@
+// Chỉnh sửa trực tiếp thư viện (trên class của thư viện)
+.owl-course, .owl-students, .owl-feedback {
+    .owl-prev, .owl-next {
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        border-radius: 50% !important;
+        box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+        background-color:$color-white-0!important;
+        z-index: 9 !important;
+        span {
+            @include styleText($color-blue, $fs-4, $fw-normal);
+            line-height: 0.6;
+        }
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            box-shadow: 0 2px 8px 2px rgba(20,23,28,.15);
+        }
+    }
+    .owl-prev {
+        top: 34%;
+        left: -2%;
+    }
+    
+    .owl-next {
+        top:34%;
+        right: -2%;
+    }
+}
+
+.owl-services.owl-carousel, .owl-feedback.owl-carousel {
+        .owl-stage {
+            display: flex;
+        }
+        .owl-item {
+            display: flex;
+            flex: 1 0 auto;
+        }
+        //căn height các item bằng nhau
+}
+
+
+// class Owl carousel có thuộc tính overflow:hidden nên không hiển thị tooltip 
+.owl-carousel .owl-stage-outer {
+    overflow: visible;
+    position: relative;
+}
+// tạo ::before màu trắng che bên trái thay overflow:hidden
+.owl-carousel .owl-stage-outer::before{
+    content: "";
+    background: #fff;
+    position: absolute;
+    width: 100%;
+    height: 110%;
+    left: -100%;
+    top: -5%;
+    z-index: 1;
+}
+// tạo ::before màu trắng che bên phải thay overflow:hidden
+.owl-carousel .owl-stage-outer::after{
+    content: "";
+    background: #fff;
+    position: absolute;
+    width: 100%;
+    height: 110%;
+    right: -100%;
+    top: -5%;
+    z-index: 1;
+}
+
+.owl-item {
+    z-index: 0;
+}

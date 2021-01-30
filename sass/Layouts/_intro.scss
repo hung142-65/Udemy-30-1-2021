@@ -1,0 +1,51 @@
+.intro{
+    background-image: linear-gradient(-45deg, $color-red-0 0%, $color-purple 100%);
+    .intro__content {
+        margin: auto;
+        width: 86%;
+        .intro-item {
+            display: flex;
+            .icon {
+                .fa, .fab {
+                    @include styleText($color-white-0, 47px, $fw-bold);
+                    display: block;
+                }
+            }
+            .content {
+                h1 {
+                    @include styleText($color-white-0, $fs-0 + 2, $fw-bold-1);
+                    margin-bottom: 0.2rem;
+                }
+                p {
+                    @include styleText($color-white-0, $fs-0, $fw-normal);
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+// RESPONSIVE
+
+@include responsive("extra-large") {
+    .intro {
+        .intro__content {
+            .intro-item {
+                .icon {
+                    .fa, .fab {
+                        display: none;
+                    }
+                }
+                .content {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@include responsive("medium") {
+    .intro {
+        display: none;
+    }
+}

@@ -1,0 +1,167 @@
+.rain-bow-bar {
+    width: 100%;
+    height: 0.5rem;
+    background: linear-gradient(
+        90deg,
+        rgb(100, 91, 83) 0%,
+        rgb(235, 82, 82) 18.23%,
+        rgb(247, 143, 47) 34.37%,
+        rgb(244, 193, 81) 48.96%,
+        rgb(82, 187, 118) 66.15%,
+        rgb(38, 165, 215) 82.29%,
+        rgb(224, 105, 183) 100%
+    );
+}
+.header__left {
+    display: flex;
+    align-items: center;
+    @include styleText($color-black-light, $fs-1, $fw-normal);
+    .navbar-brand {
+        img {
+            width: 110px;
+        }
+    }
+    // flex-grow: ;
+    .header__form {
+        flex-grow: 1;
+        border-radius: $border-radius;
+        .form-control {
+            background-color: $color-white-cream;
+            border: none;
+            &:focus {
+                box-shadow: none;
+                background-color: $color-white-0;
+                border: 1px solid $color-gray-3;
+                border-right: none;
+                transition: none;
+            }
+            &:focus + .input-group-append {
+                border: 1px solid $color-gray-3;
+                border-left: none;
+                .input-group-text {
+                    background-color: $color-white-0;
+                }
+            }
+
+        }
+        .input-group-append {
+            .input-group-text {
+                background-color: $color-white-cream;
+                border: none;
+                color: $color-red-0;
+                transition: .3s;
+                &:hover {
+                    @include styleButtonHover($color-red-0, $color-white-0, $color-trans);
+                }
+            }
+
+        }
+    }
+}
+
+.header__right {
+    .navbar-nav {
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        .nav-link {
+            @include styleText($color-black-light, $fs-1, $fw-normal);
+            &:hover {
+                background-color: $color-white-cream;
+            }
+        }
+        .ude-business, .ude-teach {
+            padding: $pd-1 0;
+            .nav-link {
+                padding: 12px 15px;
+            }
+        }
+        .ude-shopping {
+            .nav-link {
+                border-radius: 50%;
+                width: 2.5rem;
+                height: 2.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        .tooltip-wrap{
+            position: relative;
+            &:hover + .tooltip-content {
+                visibility: visible;
+            }
+        }
+        .tooltip-content {
+            visibility: hidden;
+            position: absolute;
+            background-color: #fff;
+            padding: .5em;
+            width: 60%;
+            z-index: 999;
+            top: 70px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(20,23,28,.25);
+            border-radius: $border-radius;
+            &:hover {
+                visibility: visible;
+            }
+            a {
+                text-decoration: none;
+                @include styleText($color-blue, $fs-0, $fw-bold-1);
+                &:hover {
+                    color: $color-black-0;
+                }
+            }
+        }
+        .tooltip-content::before {
+            content: "";
+            border-style: solid;
+            border-width: 0 10px 13px;
+            height: 0;
+            position: absolute;
+            width: 0;
+            top:-12px;
+            left: 14px;
+            border-color: transparent transparent $color-white-0
+            transparent;        
+    }
+    }
+}
+
+//RESPONSIVE
+@include responsive("extra-large") {
+    .header__right {
+        .ude-business,
+        .ude-teach {
+            display: none;
+        }
+    }
+}
+
+@include responsive("medium") {
+    .header__left {
+        .header__form,
+        .header__cate {
+            display: none;
+        }
+    }
+    .header__right {
+        .ude-button {
+            display: none;
+        }
+    }
+}
+
+// @media screen and (max-width: 1240px) and (min-width: 1201px) {
+//     nav {
+//         display: grid;
+//         grid-template-columns: 50% 50%;
+//         .header__left {
+//             grid-column: 1/span 1;
+//         }
+//         .header__right {
+//             grid-column: 2/span 1;
+//         }
+//     }
+// }

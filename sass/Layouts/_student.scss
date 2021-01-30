@@ -1,0 +1,8 @@
+.students__content {
+    margin: auto;
+    width: 86%;
+    h1 {
+        margin-bottom: 1rem;
+        @include styleText($color-black-light, $fs-2 - 1, $fw-normal);
+    }
+}

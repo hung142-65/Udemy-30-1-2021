@@ -1,0 +1,166 @@
+.course {
+    .course__content {
+        margin: auto;
+        width: 86%;
+        .left {
+            background-color: $color-gray-5;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
+            h1 {
+                @include styleText(#000000, $fs-2 - 1, $fw-bold-1);
+            }
+            p {
+                @include styleText(#000000, $fs-0 + 1, $fw-normal);
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.nav {
+    padding-bottom: 0;
+    .nav-item {
+        justify-content: space-between;
+        padding: 11px 12px;
+        padding-bottom: 0;
+        border: none;
+        &:hover {
+            .nav-link {
+                border: none;
+            }
+        }
+        .nav-link.active {
+            border: none;
+            border-bottom: 6px solid $color-blue;
+        }
+        .nav-link {
+            @include styleText(#000000, $fs-0, $fw-normal);
+            transition: color 0.3s;
+            border: none;
+            padding: 0;
+            padding-bottom: 1.3rem;
+        }
+    }
+}
+.tab-content, .students__content {
+    // position: relative;
+    .item {
+        position: relative;
+        box-shadow: 0 0 1px 1px rgba(20, 23, 28, 0.1), 0 3px 1px 0 rgba(20, 23, 28, 0.1);
+        .img {
+            background-color: $color-black-0;
+        }
+        a:hover {
+            text-decoration: none;
+            .card-img-top {
+                opacity: 0.5;
+            }
+        }
+        .card-body {
+            h1 {
+                @include styleText($color-black-0, $fs-0, $fw-bold-1);
+                margin-bottom: 0.8rem;
+            }
+            .author-name {
+                @include styleText($color-gray-4, $fs-1 - 1, $fw-normal);
+            }
+            .rate {
+                display: flex;
+                align-items: center;
+                .fa {
+                    @include styleText($color-yellow, $fs-1, $fw-bold);
+                }
+                .scores {
+                    @include styleText($color-gray-4, $fs-1 - 1, $fw-normal);
+                    span {
+                        @include styleText($color-black-light, $fs-1 - 1, $fw-bold-1);
+                    }
+                }
+            }
+            h2 {
+                @include styleText($color-black-0, $fs-2 - 2, $fw-bold-1);
+                span {
+                    @include styleText($color-black-0, $fs-1, $fw-normal);
+                    text-decoration: line-through;
+                    margin-right: 1rem;
+                }
+                text-align: right;
+            }
+        }
+        .best-seller {
+            position: absolute;
+            top: 4%;
+            left: 0%;
+            span {
+                @include styleText($color-black-0, 9px, $fw-bold-1);
+                background-color: $color-yellow;
+                width: fit-content;
+                padding: 0.12rem 0.5rem;
+                line-height: 1rem;
+                position: relative;
+                &::after {
+                    content: "";
+                    width: 0.76rem;
+                    height: 0.76rem;
+                    transform: rotate(45deg);
+                    position: absolute;
+                    background-color: $color-yellow;
+                    top: 2px;
+                    right: -6px;
+                }
+            }
+        }
+        .info-tooltip {
+            position: relative;
+            &:hover + .tooltip__content {
+                visibility: visible;
+            }
+        }
+        .tooltip__content {
+            display: block;
+            visibility: hidden;
+            width: 100%;
+            background-color: #000000;
+            &:hover {
+                visibility: visible;
+            }
+        }
+        .tooltip-left {
+            position: absolute;
+            top: -20%;
+            left: -90%;
+            z-index: 6;
+        }
+        .tooltip-right {
+            position: absolute;
+            top: -20%;
+            right: -90%;
+            z-index: 9999;
+        }
+            .tooltip__content::before {
+                content: "";
+                border-style: solid;
+                border-width: 0 10px 13px;
+                height: 0;
+                position: absolute;
+                width: 0;
+                top:-12px;
+                left: 14px;
+                border-color: transparent transparent $color-white-0
+                transparent;
+        }
+    }
+}
+
+// RESPONSIVE
+
+@include responsive("large") {
+    .course__content {
+        .left {
+            display: none !important;
+        }
+    }
+}
